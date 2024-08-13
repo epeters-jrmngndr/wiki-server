@@ -4,3 +4,7 @@
     border-style: solid;
     min-width: 640px;
 }
+
+button {
+    margin-right: 1em;
+}

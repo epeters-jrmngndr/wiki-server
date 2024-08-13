@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Markdown from 'react-markdown';
 import '../Editor.css';
 
@@ -10,6 +11,7 @@ function WikiEditor() {
     // state variables
     const [article, setArticle] = useState();
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     const fetchBody = async () => {
         try {
@@ -18,8 +20,8 @@ function WikiEditor() {
                 throw new Error("Not found: Saving creates new article");
             }
 
-            const data = await response.json();
-            setArticle(data.body);
+            const data = await response.text();
+            setArticle(data);
         } catch(err) {
             setError(err);
         };
@@ -45,11 +47,12 @@ function WikiEditor() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ body: article }),
+                body: article
             });
             if (!response.ok) {
                 throw new Error('Failed to save article');
             }
+            navigate(`/${path}`);
             setError(null);
         } catch (err) {
             setError(err);
@@ -63,6 +66,7 @@ function WikiEditor() {
             <h1>Now Editing: {path}</h1>
           </div>
           {error && <p>Error: {error.message}</p>}
+          <button onClick={() => navigate(`/${path}`)}>Cancel</button>
           <button onClick={() => saveChanges()}>Save</button>
           <div>
             <h3>Editor</h3>

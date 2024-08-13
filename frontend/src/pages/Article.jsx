@@ -19,8 +19,8 @@ function WikiArticle() {
             if (!response.ok) {
                 throw new Error("No article with this exact name found. Use the Edit button in the header to add it.");
             }
-            const data = await response.json();
-            setArticle(data.body);
+            const data = await response.text();
+            setArticle(data);
 
         } catch(err) {
             setError(err);
@@ -42,7 +42,10 @@ function WikiArticle() {
     return (
         <>
           <div>
-            <h1>Article: {path} </h1>
+            <h1>{path} </h1>
+            <button onClick={() => navigate(`/`)} >
+              Back
+            </button>
             <button onClick={() => navigate(`/edit/${path}`)} >
               Edit
             </button>
