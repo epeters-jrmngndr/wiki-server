@@ -30,7 +30,7 @@ function WikiFrontend() {
 
         const intervalId = setInterval(() => {
             fetchArticles();
-        }, 1000);
+        }, 2000);
 
         return () => clearInterval(intervalId);
     }, []); // Empty dependency array ensures this runs once on mount

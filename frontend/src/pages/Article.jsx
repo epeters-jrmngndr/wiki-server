@@ -34,7 +34,7 @@ function WikiArticle() {
 
         const intervalId = setInterval(() => {
             fetchArticle();
-        }, 1000);
+        }, 2000);
 
         return () => clearInterval(intervalId);
     }, []);
