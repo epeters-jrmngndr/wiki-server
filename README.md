@@ -5,6 +5,12 @@
 This project uses:
 
 * Python 3.10
+  * FastAPI
+  * PyTest
+* ReactJS 18.3
+  * Other react dependencies, as listed in `package.json`
+* Docker compose
+* Nginx (as a reverse proxy)
 
 ## Setup
 ```bash
