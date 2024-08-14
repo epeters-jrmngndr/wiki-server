@@ -7,21 +7,19 @@ import * as Constants from '../constants.js';
 
 function WikiFrontend() {
     const [articles, setArticles] = useState([]);
-    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
 
     // Function to fetch articles from the backend
     const fetchArticles = async () => {
         try {
-            const response = await fetch(`http://localhost:${Constants.BACKEND_PORT}/articles`);
+            const response = await fetch(`http://localhost:${Constants.BACKEND_PORT}/articles/`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             const data = await response.json();
             setArticles(data);
         } catch (err) {
-            setError(err);
         };
     };
 
@@ -42,7 +40,6 @@ function WikiFrontend() {
             <h1>Wiki Articles</h1>
           </div>
           <div className="article-list">
-            {error && <p>Error: {error.message}</p>}
             {articles.length > 0 ? (
                 <ul>
                     {articles.map((article, index) => (
