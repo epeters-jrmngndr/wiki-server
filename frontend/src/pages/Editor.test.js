@@ -4,22 +4,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Editor from "./Editor.jsx";
 
-beforeAll(() => {
-    // Jest isn't compatible with more recent versions of react-markdown, and so this warning arises about future incompatibility. Suppress it, for now.
-  jest.spyOn(console, 'error').mockImplementation((msg) => {
-    if (msg.includes('Support for defaultProps will be removed from function components')) {
-      return;
-    }
-    console.error(msg);
-  });
-});
-
-afterAll(() => {
-  console.error.mockRestore();
-});
-
-
-test("Text matches", () => {
+test("Headline Found", () => {
     render(
         <MemoryRouter>
           <Editor />
@@ -27,4 +12,24 @@ test("Text matches", () => {
     );
     const messageElement = screen.getByText(/Now Editing/i);
     expect(messageElement).toBeInTheDocument();
+});
+
+test("Cancel Button Renders", () => {
+    render(
+        <MemoryRouter>
+          <Editor />
+        </MemoryRouter>
+    );
+    const cancelButton = screen.getByTestId("cancel-button");
+    expect(cancelButton).toBeInTheDocument();
+});
+
+test("Save Button Renders", () => {
+    render(
+        <MemoryRouter>
+          <Editor />
+        </MemoryRouter>
+    );
+    const saveButton = screen.getByTestId("save-button");
+    expect(saveButton).toBeInTheDocument();
 });

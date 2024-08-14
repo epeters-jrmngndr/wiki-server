@@ -44,10 +44,10 @@ function WikiArticle() {
         <>
           <div>
             <h1>{path} </h1>
-            <button onClick={() => navigate(`/`)} >
+            <button data-testid="back-button" onClick={() => navigate(`/`)} >
               Back
             </button>
-            <button onClick={() => navigate(`/edit/${path}`)} >
+            <button data-testid="edit-button" onClick={() => navigate(`/edit/${path}`)} >
               Edit
             </button>
           </div>

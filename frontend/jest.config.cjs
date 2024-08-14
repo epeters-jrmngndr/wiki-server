@@ -9,4 +9,5 @@ module.exports = {
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
   },
+  setupFilesAfterEnv: ['./jest.setup.cjs'],
 };
