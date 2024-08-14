@@ -57,3 +57,15 @@ test("Displays articles as buttons", async () => {
     const articleButton2 = screen.getByText(/Article 2/i);
     expect(articleButton2).toBeInTheDocument();
 });
+
+test("Fail a test and demonstrate CI pipeline", async () => {
+    render(
+        <MemoryRouter>
+          <HomePage />
+        </MemoryRouter>
+    );
+    const messageElement = screen.getByText(/If you are seeing this page, you are in the wrong universe/i);
+    expect(messageElement).toBeInTheDocument();
+
+
+});
