@@ -1,6 +1,6 @@
 # Wiki Server (Basic)
 
-A simple implementation of an in-memory "wiki" server, storing Markdown documents by name.
+A simple implementation of an in-memory wiki server, storing Markdown documents by name.
 
 The project includes a UI, and is dockerized.
 
