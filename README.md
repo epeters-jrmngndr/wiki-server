@@ -12,8 +12,9 @@ This project uses:
   * FastAPI
   * PyTest
 * ReactJS 18.3
-  * Other react dependencies, as listed in `package.json`
-* Docker compose
+  * Vite
+  * Jest
+* Docker
 * Nginx (as a reverse proxy)
 
 ## Setup
@@ -24,20 +25,23 @@ pip install -r requirements.txt
 
 cd wiki_frontend/
 npm install
-npm run dev
 ```
 
 ## Running and Testing
 
 Convenience scripts are provided for running and testing the server.
 
+### Running
+
 `run-server.sh` starts the server (only), which runs dev mode by default. It starts on port 9090.
 
 `run-frontend` starts the frontend (only), which also runs in dev mode.
 
-`run-tests.sh` invokes both `pytest`, which tests the backend, and `npm test` (inside the `frontend/` directory), which tests the frontend.
+`run-tests.sh` invokes both `pytest`, which tests the backend, and `npm test` (inside the `frontend/` directory).
 
 `run-full.sh` starts both services locally.
+
+### Running and Building docker
 
 `build.sh` builds the docker container, and `run-container.sh` starts it.
 
@@ -49,6 +53,4 @@ As the underlying server uses Python's FastAPI, a /docs routed is automatically 
 
 You can access it at http://localhost:9090/docs, or http://localhost:9090/redoc (for the alternate ReDoc format).
 
-ViteJS was used to provision the frontend.
-
-It is containerized with Docker.
+ViteJS was used to provision the frontend, which is implemented with React. The UI is tested with Jest.
