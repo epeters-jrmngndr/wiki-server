@@ -45,8 +45,6 @@ Convenience scripts are provided for running and testing the server.
 
 `build.sh` builds the docker container, and `run-container.sh` starts it.
 
-For convenience of testing, a helper script `attach-shell.sh` is also included.
-
 ## Documentation
 
 As the underlying server uses Python's FastAPI, a /docs routed is automatically populated with each available route, describing its parameters and return values.
