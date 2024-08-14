@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "test": "jest",
+    "clear_jest": "jest --clearCache",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -21,10 +22,11 @@
     "jest-enzyme": "^7.1.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-markdown": "^9.0.1",
+    "react-markdown": "^6.0.3",
     "react-router-dom": "^6.26.0"
   },
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.24.8",
     "@eslint/js": "^9.8.0",
     "@testing-library/jest-dom": "^6.4.8",
     "@types/react": "^18.3.3",
