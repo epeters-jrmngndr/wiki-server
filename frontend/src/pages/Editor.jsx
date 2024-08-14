@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Markdown from 'react-markdown';
@@ -66,8 +67,8 @@ function WikiEditor() {
             <h1>Now Editing: {path}</h1>
           </div>
           {error && <p>Error: {error.message}</p>}
-          <button onClick={() => navigate(`/${path}`)}>Cancel</button>
-          <button onClick={() => saveChanges()}>Save</button>
+          <button data-testid="cancel-button" onClick={() => navigate(`/${path}`)}>Cancel</button>
+          <button data-testid="save-button" onClick={() => saveChanges()}>Save</button>
           <div>
             <h3>Editor</h3>
             <input

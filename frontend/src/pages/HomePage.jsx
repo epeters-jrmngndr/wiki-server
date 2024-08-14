@@ -1,9 +1,8 @@
+import React from "react";
 import { useState, useEffect } from 'react';
 import '../HomePage.css';
 import { useNavigate } from 'react-router-dom';
-
 import * as Constants from '../constants.js';
-
 
 function WikiFrontend() {
     const [articles, setArticles] = useState([]);
