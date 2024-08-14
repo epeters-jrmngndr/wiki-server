@@ -31,11 +31,13 @@ Convenience scripts are provided for running and testing the server.
 
 `run-frontend` starts the frontend (only), which also runs in dev mode.
 
-`run-tests.sh` invokes `pytest`.
+`run-tests.sh` invokes both `pytest`, which tests the backend, and `npm test` (inside the `frontend/` directory), which tests the frontend.
 
-`run-full.sh` starts both services.
+`run-full.sh` starts both services locally.
 
-`build.sh` builds the docker container, and `run-container.sh` starts it. For convenience of testing, a helper script `attach-shell.sh` is also included.
+`build.sh` builds the docker container, and `run-container.sh` starts it.
+
+For convenience of testing, a helper script `attach-shell.sh` is also included.
 
 ## Documentation
 
