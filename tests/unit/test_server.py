@@ -48,3 +48,8 @@ def test_article_listing(server):
     response = server.get("/articles")
     assert response.status_code == 200
     assert response.json() == keys
+
+
+def test_failure():
+    """Demonstrate that test failures will block our CI pipeline"""
+    assert False
